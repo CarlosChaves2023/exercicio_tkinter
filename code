@@ -1,0 +1,61 @@
+from tkinter import *
+
+
+janela = Tk()
+
+
+def delEntry():
+    cm_entrada.delete(0, END)
+    m_entrada.delete(0, END)
+
+
+
+def pegarDados():
+    x = cm_entrada.get()
+    m = int(cm_entrada.get())/100
+    m_entrada.insert(0, m)
+    print(f'valor em cm: {x}\n'
+          f'valor em m: {m}')
+
+
+
+janela.title('Convertendo de cm para m')
+
+janela.geometry('400x320')
+janela['bg'] = 'lightblue'
+
+espaco = Label(text='', bg='lightblue')
+espaco.pack()
+
+titulo = Label(text='Conversor de Medida', bg='lightblue', font=('arial', 20))
+titulo.pack()
+
+espaco = Label(text='', bg='lightblue')
+espaco.pack()
+
+cm = Label(text='Valor em centímetros', bg='lightblue', font='arial')
+cm.pack()
+cm_entrada = Entry()
+cm_entrada.pack()
+
+espaco = Label(text='', bg='lightblue')
+espaco.pack()
+
+conversor = Button(janela, text='Converter', command=pegarDados)
+conversor.pack()
+
+espaco = Label(text='', bg='lightblue')
+espaco.pack()
+
+m = Label(text='Resultado em metros', bg='lightblue', font='arial')
+m.pack()
+m_entrada = Entry()
+m_entrada.pack()
+
+espaco = Label(text='', bg='lightblue')
+espaco.pack()
+
+apagar = Button(janela, text='Limpar', command = delEntry)
+apagar.pack()
+
+janela.mainloop()
